@@ -49,7 +49,7 @@ describe('nodemon rules', function () {
 
   it('should ignore comments files', function (done) {
     rules.load(fixtures.comments.path, function (error, rules) {
-      assert.equal(rules.ignore.length, 0, 'zero ignore rules');
+      assert.strictEqual(rules.ignore.length, 0, 'zero ignore rules');
       done();
     });
   });
@@ -57,7 +57,7 @@ describe('nodemon rules', function () {
   it('should allow comments on lines', function (done) {
     rules.load(fixtures.simple.path, function (error, rules) {
       rules.ignore.forEach(function (rule) {
-        assert.equal(rule.indexOf('# comment'), -1, 'no comment found');
+        assert.strictEqual(rule.indexOf('# comment'), -1, 'no comment found');
       });
       done();
     });

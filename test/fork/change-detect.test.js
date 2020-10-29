@@ -45,7 +45,7 @@ describe('nodemon fork monitor', function () {
 
           // .split('changes after filters').pop().split('/');
           // var restartedOn = changes.pop().trim();
-          assert.equal(restartedOn, '1', 'nodemon restarted on 1 file: ' + restartedOn + ' / ' + data.toString());
+          assert.strictEqual(restartedOn, '1', 'nodemon restarted on 1 file: ' + restartedOn + ' / ' + data.toString());
         }
       },
       error: function (data) {
@@ -73,7 +73,7 @@ describe('nodemon fork monitor', function () {
             var changes = data.split('/');
             var restartedOn = changes.pop();
 
-            assert.equal(restartedOn, '0', 'expects to not have restarted');
+            assert.strictEqual(restartedOn, '0', 'expects to not have restarted');
             utils.cleanup(p, done);
           }
         },

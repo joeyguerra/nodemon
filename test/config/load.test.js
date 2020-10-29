@@ -222,7 +222,7 @@ describe('config load', function () {
 
   //   load(settings, options, config, function (config) {
   //     var cmd = commandToString(command(config));
-  //     assert.equal(cmd, 'node --harmony app.js', 'command is ' + cmd);
+  //     assert.strictEqual(cmd, 'node --harmony app.js', 'command is ' + cmd);
   //     done();
   //   });
 
@@ -255,7 +255,7 @@ describe('config load', function () {
     load({
       ignore: ['*/artic/templates/*', 'views/*'],
     }, {}, {}, function (config) {
-      assert.equal(config.ignore.length, defaults.ignoreRoot.length + 2);
+      assert.strictEqual(config.ignore.length, defaults.ignoreRoot.length + 2);
       done();
     });
   });
@@ -265,7 +265,7 @@ describe('config load', function () {
       ignore: ['*/artic/templates/*', 'views/*'],
       ignoreRoot: ['.git'],
     }, {}, {}, function (config) {
-      assert.equal(config.ignore.length, 3);
+      assert.strictEqual(config.ignore.length, 3);
       done();
     });
   });
@@ -274,7 +274,7 @@ describe('config load', function () {
     load({
       ignore: 'public',
     }, {}, {}, function (config) {
-      assert.equal(config.ignore.length, defaults.ignoreRoot.length + 1);
+      assert.strictEqual(config.ignore.length, defaults.ignoreRoot.length + 1);
       done();
     });
   });
@@ -284,7 +284,7 @@ describe('config load', function () {
       ignore: 'public',
       ignoreRoot: [],
     }, {}, {}, function (config) {
-      assert.equal(config.ignore.length, 1);
+      assert.strictEqual(config.ignore.length, 1);
       done();
     });
   });

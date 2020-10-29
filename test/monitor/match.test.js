@@ -36,7 +36,7 @@ describe('match', function() {
       'js,mjs,json'
     );
 
-    assert.equal(res.result.length, 1, JSON.stringify(res));
+    assert.strictEqual(res.result.length, 1, JSON.stringify(res));
   });
 
   it('should match zero files', function() {

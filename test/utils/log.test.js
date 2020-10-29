@@ -32,7 +32,7 @@ describe('logger', function () {
   it('should disable colour', function () {
     var type = 'fail';
     bus.once('log', function (event) {
-      assert.equal(event.message, type);
+      assert.strictEqual(event.message, type);
       assert.ok(event.colour.indexOf(colour[types[type]]) !== -1);
     });
     logger[type](type);
@@ -40,7 +40,7 @@ describe('logger', function () {
     logger.useColours = false;
 
     bus.once('log', function (event) {
-      assert.equal(event.message, type);
+      assert.strictEqual(event.message, type);
       assert.ok(event.colour.indexOf(colour[types[type]]) === -1);
     });
     logger[type](type);
@@ -48,7 +48,7 @@ describe('logger', function () {
     logger.useColours = true;
 
     bus.once('log', function (event) {
-      assert.equal(event.message, type);
+      assert.strictEqual(event.message, type);
       assert.ok(event.colour.indexOf(colour[types[type]]) !== -1);
     });
     logger[type](type);

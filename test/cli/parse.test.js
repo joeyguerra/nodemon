@@ -42,7 +42,7 @@ describe('nodemon CLI parser', function () {
     var settings = parse(asCLI('--debug'));
     var cmd = commandToString(command(settings));
     process.chdir(cwd);
-    assert.equal(cmd, 'NODE_ENV=development node ./bin/www --debug');
+    assert.strictEqual(cmd, 'NODE_ENV=development node ./bin/www --debug');
   });
 
   it('should replace {{filename}}', function () {
@@ -114,7 +114,7 @@ describe('nodemon CLI parser', function () {
 
     process.chdir(pwd);
 
-    assert.equal(cmd, 'NODE_ENV=development node ./bin/www', 'command is "' + cmd + '"');
+    assert.strictEqual(cmd, 'NODE_ENV=development node ./bin/www', 'command is "' + cmd + '"');
   });
 
   it('should support spaces', function () {
@@ -278,7 +278,7 @@ describe('nodemon should support implicit extensions', () => {
     const settings = parse(asCLI('env'));
     process.chdir(cwd);
     var cmd = commandToString(command(settings));
-    assert.equal(cmd, 'node env.js', 'implicit extension added');
+    assert.strictEqual(cmd, 'node env.js', 'implicit extension added');
   });
 
   it('should support non-js', () => {
@@ -287,7 +287,7 @@ describe('nodemon should support implicit extensions', () => {
     const settings = parse(asCLI('hello --ext py'));
     process.chdir(cwd);
     var cmd = commandToString(command(settings));
-    assert.equal(cmd, 'node hello.py', 'implicit extension added');
+    assert.strictEqual(cmd, 'node hello.py', 'implicit extension added');
   });
 
 });
@@ -302,19 +302,19 @@ describe('nodemon should slurp properly', () => {
   it('should pass non-slurped args to script', () => {
     const settings = parse(asCLI('-- --log'));
     var cmd = commandToString(command(settings));
-    assert.equal(cmd, 'node ./lib/nodemon.js --log', 'args passed to script');
+    assert.strictEqual(cmd, 'node ./lib/nodemon.js --log', 'args passed to script');
   });
 
   it('should pass non-slurped args to explicit script', () => {
     const settings = parse(asCLI('./lib/nodemon.js -- --log'));
     var cmd = commandToString(command(settings));
-    assert.equal(cmd, 'node ./lib/nodemon.js --log', 'args passed to script');
+    assert.strictEqual(cmd, 'node ./lib/nodemon.js --log', 'args passed to script');
   });
 
   it('should pass slurped args to explicit script', () => {
     const settings = parse(asCLI('./lib/nodemon.js --log'));
     var cmd = commandToString(command(settings));
-    assert.equal(cmd, 'node ./lib/nodemon.js --log', 'args passed to script');
+    assert.strictEqual(cmd, 'node ./lib/nodemon.js --log', 'args passed to script');
   });
 
   it('should handle a mix of slurps', () => {
@@ -322,13 +322,13 @@ describe('nodemon should slurp properly', () => {
     var settings;
 
     cmd = commandToString(command(parse(asCLI('--inspect -- --log'))));
-    assert.equal(cmd, 'node --inspect ./lib/nodemon.js --log', 'args passed to script');
+    assert.strictEqual(cmd, 'node --inspect ./lib/nodemon.js --log', 'args passed to script');
 
     cmd = commandToString(command(parse(asCLI('--inspect ./lib/nodemon.js -- --log'))));
-    assert.equal(cmd, 'node --inspect ./lib/nodemon.js --log', 'args passed to script');
+    assert.strictEqual(cmd, 'node --inspect ./lib/nodemon.js --log', 'args passed to script');
 
     cmd = commandToString(command(parse(asCLI('--inspect --log ./lib/nodemon.js'))));
-    assert.equal(cmd, 'node --inspect --log ./lib/nodemon.js', 'args passed to script');
+    assert.strictEqual(cmd, 'node --inspect --log ./lib/nodemon.js', 'args passed to script');
   });
 
 });

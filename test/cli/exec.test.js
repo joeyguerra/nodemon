@@ -33,17 +33,17 @@ describe('expandScript', () => {
 
   it('should expand app.js', () => {
     const script = expandScript('app');
-    assert.equal(script, 'app.js', script);
+    assert.strictEqual(script, 'app.js', script);
   })
 
   it('should expand hello.py', () => {
     const script = expandScript('hello', '.py');
-    assert.equal(script, 'hello.py', script);
+    assert.strictEqual(script, 'hello.py', script);
   })
 
   it('should ignore foo.js', () => {
     const script = expandScript('foo', '.js');
-    assert.equal(script, 'foo', script);
+    assert.strictEqual(script, 'foo', script);
   })
 });
 
@@ -62,9 +62,9 @@ describe('nodemon exec', function () {
   it('should default to node', function () {
     var options = exec({ script: 'index.js' });
     var cmd = toCmd(options);
-    assert.equal(options.exec, 'node', 'exec is node');
-    assert.equal(options.ext, 'js,mjs,json');
-    assert.equal(cmd.string, 'node index.js', cmd.string);
+    assert.strictEqual(options.exec, 'node', 'exec is node');
+    assert.strictEqual(options.ext, 'js,mjs,json');
+    assert.strictEqual(cmd.string, 'node index.js', cmd.string);
   });
 
   it('should support --debug', function () {
@@ -95,16 +95,16 @@ describe('nodemon exec', function () {
 
   it('should support watching all extensions', function () {
     var options = exec({ script: 'app.js', ext: '' });
-    assert.equal(options.ext, '', 'does not set default extensions when empty extension requested');
+    assert.strictEqual(options.ext, '', 'does not set default extensions when empty extension requested');
 
     options = exec({ script: 'app.js', ext: '.' });
-    assert.equal(options.ext, '', 'treats `.` as wildcard extension');
+    assert.strictEqual(options.ext, '', 'treats `.` as wildcard extension');
 
     options = exec({ script: 'app.js', ext: '*' });
-    assert.equal(options.ext, '', 'treats `*` as wildcard extension');
+    assert.strictEqual(options.ext, '', 'treats `*` as wildcard extension');
 
     options = exec({ script: 'app.coffee', exec: 'coffee', ext: '' });
-    assert.equal(options.ext, '', 'does not set default extensions when empty extension requested');
+    assert.strictEqual(options.ext, '', 'does not set default extensions when empty extension requested');
   });
 
   it('should replace {{filename}}', function () {

@@ -27,7 +27,7 @@ describe('config logging', () => {
     const config = {};
 
     load(noop, noop, config, () => {
-      assert.equal(config.loaded.length, 2, 'global nodemon and local package');
+      assert.strictEqual(config.loaded.length, 2, 'global nodemon and local package');
       done();
     });
   });
@@ -39,7 +39,7 @@ describe('config logging', () => {
 
     load(noop, noop, config, () => {
       const files = config.loaded.map(_ => path.relative(pwd, _));
-      assert.equal(files.length, 1, 'global nodemon');
+      assert.strictEqual(files.length, 1, 'global nodemon');
       assert.deepEqual(files, ['test/fixtures/nodemon.json'], 'global nodemon');
       done();
     });
@@ -52,7 +52,7 @@ describe('config logging', () => {
 
     load(noop, noop, config, () => {
       const loaded = config.loaded.map(_ => path.relative(pwd, _));
-      assert.equal(loaded.length, 1, 'global nodemon is loaded and legacy is ignored');
+      assert.strictEqual(loaded.length, 1, 'global nodemon is loaded and legacy is ignored');
       done();
     });
   });
@@ -64,7 +64,7 @@ describe('config logging', () => {
 
     load(noop, noop, config, () => {
       const loaded = config.loaded.map(_ => path.relative(pwd, _));
-      assert.equal(loaded.length, 1, 'legacy loaded');
+      assert.strictEqual(loaded.length, 1, 'legacy loaded');
       done();
     });
   });
