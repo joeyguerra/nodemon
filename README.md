@@ -1,6 +1,6 @@
 # codemon
 
-Fork of nodemon. Turning it into something else.
+Fork of nodemon. Removing as many dependencies as I can.
 
 nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 
