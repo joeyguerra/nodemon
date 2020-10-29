@@ -53,7 +53,8 @@
     "mocha": "^2.5.3",
     "proxyquire": "^1.8.0",
     "semantic-release": "^8.2.3",
-    "should": "~4.0.0"
+    "should": "~4.0.0",
+    "touch": "^3.1.0"
   },
   "dependencies": {
     "chokidar": "^3.2.2",
@@ -61,7 +62,6 @@
     "minimatch": "^3.0.4",
     "pstree.remy": "^1.1.7",
     "semver": "^5.7.1",
-    "touch": "^3.1.0",
     "update-notifier": "^2.5.0"
   },
   "version": "0.0.0-development"
