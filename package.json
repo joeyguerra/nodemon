@@ -58,7 +58,6 @@
   "dependencies": {
     "chokidar": "^3.2.2",
     "debug": "^3.2.6",
-    "ignore-by-default": "^1.0.1",
     "minimatch": "^3.0.4",
     "pstree.remy": "^1.1.7",
     "semver": "^5.7.1",
